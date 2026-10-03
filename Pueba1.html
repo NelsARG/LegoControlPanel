@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Tienda de LEGO</title>
+</head>
+<body>
+
+    <!-- ENCABEZADO PRINCIPAL -->
+    <header>
+        <h1>Control de Proyectos y Exhibiciones LEGO</h1>
+        <p>Panel de administracion de tareas, personal y costos</p>
+    </header>
+
+    <main>
+
+        
+        <!-- Dashboard y tareas en ejecucion  -->
+        
+         
+        <section id="prioridad-1-dashboard">
+            <h2>Monitoreo y Proyectos en Ejecucion</h2>
+            <!-- Lista de Tareas / Exhibiciones Activas -->
+            <article id="proyectos-activos">
+                <h3>Exhibiciones LEGO en Construccion (Proyectos Activos)</h3>
+
+                <!-- Tarjeta de Ejemplo de Tarea Activa -->
+                <div class="tarea-card">
+                    <h4>Exhibicion: Castillo Medieval LEGO (Cantidad: 2 unidades)</h4>
+                    <p><strong>Inicio:</strong> 2026-10-01 | <strong>Estimado Fin:</strong> 2026-10-05</p>
+
+                    <!-- Barra de Progreso de la Tarea -->
+                    <div>
+                        <label for="progreso-1">Progreso de la actividad:</label>
+                        <progress id="progreso-1" value="67" max="100">67%</progress>
+                        <span>65%</span>
+                    </div>
+
+                    <!-- Detalle de Recursos Asignados -->
+                    <div>
+                        <p><strong>Personal Asignado:</strong> Juan Perez ($15/hr - 10 hrs est.)</p>
+                        <p><strong>Sets de LEGO Asignados:</strong> Set Castillo x 2 unidades ($120 c/u)</p>
+                        <p><strong>Otros Costos:</strong> Pegamento y Luces LED x 1 ($25 c/u)</p>
+                    </div>
+
+                    <!-- Accion para Concluir Actividad -->
+                    <button type="button">Marcar Actividad como Concluida</button>
+                </div>
+            </article>
+            <!-- Resumen Global de Costos y Metricas -->
+            <article id="resumen-costos">
+                <h3>Resumen de Costos del Proyecto</h3>
+                <div>
+                    <p><strong>Costo Total Presupuestado:</strong> $0.00</p>
+                    <p><strong>Costo Real (Actividades Concluidas):</strong> $0.00</p>
+                </div>
+                <div>
+                    <p><strong>Costo Personal (Presupuestado vs Real):</strong> $0.00 / $0.00</p>
+                    <p><strong>Costo Materiales / Sets LEGO (Presupuestado vs Real):</strong> $0.00 / $0.00</p>
+                    <p><strong>Costo Otros Gastos (Presupuestado vs Real):</strong> $0.00 / $0.00</p>
+                </div>
+            </article>
+
+            <!-- Alertas de Carga de Trabajo -->
+            <article id="alertas-personal">
+                <h3>Alertas de Sobreutilizacion de Personal (> 8 hrs/dia)</h3>
+                <ul>
+                    <!-- se debe listar si alguno esta sobrecargardo, si no mandar sin alertas -->
+                    <li>Sin alertas por el momento.</li>
+                </ul>
+            </article>
+
+            
+        </section>
+
+        <hr>
+
+        
+        <!-- Formularios de registro y creacion de recursos     -->
+        
+        <section id="formularios">
+            <h2>PRIORIDAD 2: Modulos de Registro y Gestion</h2>
+
+            <!-- 1. Formulario de Creacion de Personal -->
+            <article id="modulo-personal">
+                <h3>Crear Nuevo Personal (Encargado de Construccion)</h3>
+                <form>
+                    <div>
+                        <label for="nombre-personal">Nombre completo:</label>
+                        <input type="text" id="nombre-personal" required>
+                    </div>
+                    <div>
+                        <label for="costo-hora">Costo por hora ($):</label>
+                        <input type="number" id="costo-hora" min="0" step="0.5" required>
+                    </div>
+                    <button type="submit">Guardar Personal</button>
+                </form>
+            </article>
+
+            <!-- 2. Formulario de Registro de Materiales y Otros Costos -->
+            <article id="modulo-materiales">
+                <h3>Crear Materiales (Sets LEGO) y Otros Costos</h3>
+                <form>
+                    <div>
+                        <label for="tipo-recurso">Tipo de recurso:</label>
+                        <select id="tipo-recurso">
+                            <option value="material">Set de LEGO (Material)</option>
+                            <option value="pegamento">Pegamento</option>
+                            <option value="lustrador">Lustrador</option>
+                            <option value="desempolvador">Desenpolvador</option>
+                            <option value="desatascadorLEGO">Desatascador de Lego</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="nombre-recurso">Nombre del set / gasto:</label>
+                        <input type="text" id="nombre-recurso" required>
+                    </div>
+                    <div>
+                        <label for="costo-unidad">Costo por unidad ($):</label>
+                        <input type="number" id="costo-unidad" min="0" step="0.01" required>
+                    </div>
+                    <button type="submit">Guardar Recurso</button>
+                </form>
+            </article>
+
+            <!-- 3. Formulario de Creacion de Tareas / Exhibiciones -->
+            <article id="modulo-tareas">
+                <h3>Crear Nueva Tarea (Exhibicion LEGO)</h3>
+                <form>
+                    <div>
+                        <label for="nombre-tarea">Nombre de la exhibicion:</label>
+                        <input type="text" id="nombre-tarea" required>
+                    </div>
+
+                    <div>
+                        <label for="cantidad-construcciones">Cantidad a construir (Mismo tipo):</label>
+                        <input type="number" id="cantidad-construcciones" min="1" value="1" required>
+                    </div>
+
+                    <div>
+                        <label for="personal-asignado">Asignar Personal:</label>
+                        <select id="personal-asignado">
+                            <option value="">-- Seleccionar Personal --</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="tiempo-ejecucion">Tiempo estimado (Horas):</label>
+                        <input type="number" id="tiempo-ejecucion" min="1" required>
+                    </div>
+
+                    <div>
+                        <label for="material-asignado">Asignar Set LEGO / Material:</label>
+                        <select id="material-asignado">
+                            <option value="">-- Seleccionar Material --</option>
+                        </select>
+                        <label for="cant-material">Cantidad:</label>
+                        <input type="number" id="cant-material" min="1" value="1">
+                    </div>
+
+                    <div>
+                        <label for="otro-costo-asignado">Asignar Otros Costos:</label>
+                        <select id="otro-costo-asignado">
+                            <option value="">-- Seleccionar Otro Costo --</option>
+                        </select>
+                        <label for="cant-otro">Cantidad:</label>
+                        <input type="number" id="cant-otro" min="1" value="1">
+                    </div>
+
+                    <button type="submit">Crear Tarea / Exhibicion</button>
+                </form>
+            </article>
+        </section>
+
+        <hr>
+
+        
+        <!-- Lista de consulta y restriccion de elimin acion   -->
+        
+        <section id="listados-consultas">
+            <h2>Inventario y Catalogo de Recursos</h2>
+
+            <!-- Tabla de Personal Creado -->
+            <article>
+                <h3>Listado de Personal</h3>
+                <table boarder="1">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Costo / Hora</th>
+                            <th>Estado Asignacion</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan Perez</td>
+                            <td>$15.00</td>
+                            <td>Asignado a 1 Tarea</td>
+                            <td><button disabled title="No se puede borrar porque esta asignado">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <!-- Tabla de Materiales / Sets Lego Creados -->
+            <article>
+                <h3>Listado de Materiales y Costos</h3>
+                <table boarder="1">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Nombre</th>
+                            <th>Costo Unitario</th>
+                            <th>Estado Asignacion</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Set LEGO</td>
+                            <td>Castillo Medieval</td>
+                            <td>$120.00</td>
+                            <td>Asignado</td>
+                            <td><button disabled title="No se puede borrar porque tiene/tuvo asignaciones">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+    </main>
+
+    
+    <footer>
+        <p>Sistema de Control de Proyectos LEGO - Almacenamiento Local (Arrays JS)</p>
+    </footer>
+
+</body>
+</html>
